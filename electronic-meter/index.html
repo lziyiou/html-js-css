@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日期</title>
+    <style>
+        div{
+            text-align: center;
+            margin-top: 200px;
+        }
+        img{
+            width: 100px;
+        }
+    </style>
+    <script>
+        function timeToString(time){
+            var hour = time.getHours();
+            var minute = time.getMinutes();
+            var second = time.getSeconds();
+            function toDou(item) {
+                if (item<10){
+                    return "0"+item;
+                } else {
+                    return ""+item;
+                }
+            }
+            return toDou(hour)+toDou(minute)+toDou(second);
+        }
+        window.onload=function (ev) {
+            // 获取所有的img标签
+            imgs = document.getElementsByClassName("num");
+            // 获取时间对象,并转换成可解析字符串
+            function disp(){
+                var time = timeToString(new Date());
+                for(var i=0; i<imgs.length; i++){
+                    imgs[i].src="img/"+time.charAt(i)+".png";
+                }
+            }
+            setInterval(disp,1000);
+            disp();
+        }
+    </script>
+</head>
+<body>
+<!--一个时钟-->
+<div>
+    <img class="num" src="img/0.png">
+    <img class="num" src="img/0.png">
+    <img src="img/mh.png">
+    <img class="num" src="img/0.png">
+    <img class="num" src="img/0.png">
+    <img src="img/mh.png">
+    <img class="num" src="img/0.png">
+    <img class="num" src="img/0.png">
+</div>
+</body>
+</html>

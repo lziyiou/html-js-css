@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>在线计算器</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#cacu{
+			border: 3px solid #333;
+			border-radius: 10px;
+			width: 330px;
+			height: 500px;
+			margin: auto;
+			margin-top: 40px;
+			text-align: center;
+			background: #FAFAD2;
+		}
+		/**/
+		div{
+			margin-top: 20px;
+		}
+		/*按钮div*/
+		#btns{
+			margin-top: 40px;
+			margin-left: 20px;
+		}
+		/*显示框*/
+		input{
+			border: 2px solid #444;
+			width: 90%;
+			height: 40px;
+			background: #F5F5DC;
+			font-size: 30px;
+		}
+		/*按钮*/
+		input[type="button"]{
+			width: 60px;
+			height: 60px;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			border-radius: 5px;
+			font-size: 40px;
+			font-family: "Script","Bauhaus 93";
+		}
+		#clear{margin-left: -230px}
+	</style>
+	<script type="text/javascript">
+		function onClick(btn){
+			var expr = document.getElementById("display_text");
+			switch(btn.value){
+				default :expr.value += btn.value;break;
+				case "=":expr.value = eval(expr.value);break;
+				case "C":expr.value = "";break;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="cacu">
+		<div id="display">
+			<input id="display_text" type="text" name="" readonly="true">
+		</div>
+		<div id="btns">
+			<table>
+				<tr><input id="clear" type="button" name="" value="C" onclick="onClick(this)"></tr>
+				<tr>
+					<td><input type="button" name="" value="7" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="8" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="9" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="/" onclick="onClick(this)"></td>
+				</tr>
+				<tr>
+					<td><input type="button" name="" value="4" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="5" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="6" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="*" onclick="onClick(this)"></td>
+				</tr>
+				<tr>
+					<td><input type="button" name="" value="1" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="2" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="3" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="-" onclick="onClick(this)"></td>
+				</tr>
+				<tr>
+					<td><input type="button" name="" value="0" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="." onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="+" onclick="onClick(this)"></td>
+					<td><input type="button" name="" value="=" onclick="onClick(this)"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
